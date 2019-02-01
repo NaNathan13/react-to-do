@@ -7,12 +7,14 @@ class ToDo extends Component {
                 <li>
                     <input type="checkbox" checked={ this.props.isCompleted } onChange={this.props.toggleComplete} />
                     <span>{ this.props.description }</span>
+                    <button onClick={this.props.deleteTodo}>X</button>
                 </li>
+                
             </div>
         );
     }
 }
 
-export default ToDo;
 
-/* So I can update in GitHub*/
+
+export default ToDo;
