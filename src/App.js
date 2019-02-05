@@ -7,7 +7,7 @@ class App extends Component {
     super(props);
     this.state = {
       todos: [
-        {description: 'Walk the dog', isCompleted: true },
+        {description: 'Walk the dog', isCompleted: false },
         {description: 'Throw the dishes away', isCompleted: false },
         {description: 'Buy new dishes', isCompleted: false }
       ],
@@ -29,9 +29,11 @@ class App extends Component {
     todo.isCompleted = todo.isCompleted ? false : true;
     this.setState({ todos: todos });
   }
-deleteTodo = (id) => {
-  this.setState({todos: [...this.state.todos.filter(todo => todo.index !== index)]}); //Unclear on how to filter through this array of objects so that it is removed upon click
-}
+  deleteTodo(index) {
+    this.setState(
+    {todos: this.state.todos.filter((todos, i) => i !== index)
+    });
+  }
 
    render() {
     return (
